@@ -1,0 +1,334 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>A Special Birthday Surprise 🎀</title>
+
+<style>
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Georgia, serif;
+  background: #fff0f5;
+  color: #70445b;
+  text-align: center;
+  overflow-x: hidden;
+}
+
+section {
+  padding: 55px 20px;
+}
+
+.hero {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(145deg,#ffe1ec,#fce4f5,#eee0ff);
+  padding: 30px 20px;
+}
+
+.tag {
+  font-family: Arial, sans-serif;
+  letter-spacing: 3px;
+  font-size: 12px;
+  color: #bd7298;
+  margin-bottom: 22px;
+}
+
+h1 {
+  font-size: clamp(38px,10vw,65px);
+  line-height: 1.2;
+  color: #b34e83;
+  margin-bottom: 15px;
+}
+
+.hero p {
+  font-size: 17px;
+  margin: 12px;
+  line-height: 1.7;
+}
+
+button {
+  border: none;
+  background: #d76b9e;
+  color: white;
+  padding: 15px 27px;
+  border-radius: 30px;
+  font-size: 15px;
+  cursor: pointer;
+  margin-top: 20px;
+  box-shadow: 0 5px 15px #d76b9e55;
+}
+
+button:active {
+  transform: scale(.96);
+}
+
+.section-title {
+  font-size: 32px;
+  color: #b34e83;
+  margin-bottom: 20px;
+}
+
+.hidden {
+  display: none;
+}
+
+.letter {
+  max-width: 600px;
+  margin: auto;
+  background: #fffafd;
+  padding: 30px 23px;
+  border-radius: 18px;
+  box-shadow: 0 5px 25px #b34e8318;
+  line-height: 2;
+  font-size: 17px;
+  text-align: left;
+}
+
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(2,1fr);
+  gap: 13px;
+  max-width: 600px;
+  margin: 25px auto;
+}
+
+.gallery img {
+  width: 100%;
+  aspect-ratio: 1;
+  object-fit: cover;
+  border-radius: 15px;
+  border: 4px solid white;
+}
+
+.gallery img:only-child {
+  grid-column: span 2;
+}
+
+input[type="file"] {
+  max-width: 90%;
+  margin: 15px auto;
+  display: block;
+  color: #9d5480;
+}
+
+.memory {
+  background: #fff8fc;
+  border-radius: 16px;
+  padding: 22px;
+  max-width: 500px;
+  margin: 15px auto;
+  line-height: 1.8;
+}
+
+.footer {
+  background: #f6d5e6;
+  padding: 45px 20px;
+  line-height: 2;
+}
+
+#surprise {
+  font-size: 50px;
+  margin: 20px;
+  animation: bounce 1s infinite alternate;
+}
+
+@keyframes bounce {
+  to { transform: translateY(-10px); }
+}
+
+#confetti {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  pointer-events: none;
+  font-size: 24px;
+  z-index: 10;
+}
+
+.small {
+  font-size: 13px;
+  color: #a66b8c;
+  font-family: Arial,sans-serif;
+}
+</style>
+</head>
+
+<body>
+
+<div class="hero">
+  <div class="tag">A LITTLE SURPRISE FOR YOU ✨</div>
+
+  <h1>Happy Birthday,<br>My Special Person! 🎀</h1>
+
+  <p>
+    Today is all about YOU.<br>
+    I've made something special for you...
+  </p>
+
+  <div style="font-size:45px;margin:20px">🎂 🌷 🎁</div>
+
+  <button onclick="openSurprise()">
+    Open Your Surprise 💌
+  </button>
+</div>
+
+<div id="birthdayContent" class="hidden">
+
+  <section>
+    <h2 class="section-title">A Very Happy Birthday! 🌸</h2>
+    <p style="line-height:2">
+      Another year, another reason to celebrate you.
+      I hope your day is filled with happiness,
+      laughter and beautiful moments.
+    </p>
+    <div id="surprise">🎉</div>
+  </section>
+
+  <section style="background:#fce3ef">
+    <h2 class="section-title">A Little Letter For You 💌</h2>
+
+    <div class="letter">
+      Dear [HER NAME],<br><br>
+
+      First of all, a very, very happy birthday! ❤️
+
+      I just wanted to make something different for your
+      special day. You deserve all the happiness in the world.
+
+      Thank you for being such a wonderful part of my life.
+      I hope this new year brings you countless reasons
+      to smile and everything your heart wishes for.
+
+      Never stop being the amazing person you are.
+
+      <br><br>
+      With lots of love,<br>
+      [YOUR NAME] 🎀
+    </div>
+  </section>
+
+  <section>
+    <h2 class="section-title">Our Little Gallery 📸</h2>
+
+    <p>Some memories worth keeping forever.</p>
+
+    <input type="file" id="photos" accept="image/*" multiple>
+
+    <div class="gallery" id="gallery"></div>
+
+    <p class="small">Choose your photos to add them to the gallery.</p>
+  </section>
+
+  <section style="background:#fce3ef">
+    <h2 class="section-title">A Few Wishes For You 🌷</h2>
+
+    <div class="memory">
+      ✨ May your dreams come true.
+    </div>
+
+    <div class="memory">
+      🌸 May you always find reasons to smile.
+    </div>
+
+    <div class="memory">
+      🎀 May this year be your most beautiful one yet.
+    </div>
+  </section>
+
+  <section>
+    <h2 class="section-title">One Last Surprise! 🎁</h2>
+
+    <p>There's one more little surprise waiting for you.</p>
+
+    <button onclick="showFinal()">
+      Click For Your Final Surprise ✨
+    </button>
+
+    <div id="finalMessage" class="hidden" style="margin-top:30px;line-height:2">
+      <h2 style="color:#c0548a">You are amazing! ❤️</h2>
+      <p>
+        I hope this little website made your birthday
+        a little more special.
+      </p>
+      <div style="font-size:45px">🎂 🎀 🌷</div>
+    </div>
+  </section>
+
+  <div class="footer">
+    Made especially for you 💗<br>
+    Happy Birthday!<br>
+    <span class="small">A little website, a lot of wishes.</span>
+  </div>
+
+</div>
+
+<div id="confetti"></div>
+
+<script>
+function openSurprise() {
+  document.getElementById("birthdayContent")
+    .classList.remove("hidden");
+
+  document.getElementById("birthdayContent")
+    .scrollIntoView({behavior:"smooth"});
+
+  celebrate();
+}
+
+function showFinal() {
+  document.getElementById("finalMessage")
+    .classList.remove("hidden");
+
+  celebrate();
+}
+
+function celebrate() {
+  const box = document.getElementById("confetti");
+  const emojis = ["🎉","✨","💗","🌸","🎀","⭐"];
+
+  for(let i=0;i<25;i++) {
+    const item = document.createElement("span");
+    item.innerText = emojis[Math.floor(Math.random()*emojis.length)];
+
+    item.style.position = "absolute";
+    item.style.left = Math.random()*100 + "%";
+    item.style.top = "-30px";
+    item.style.transition = "transform 3s ease, opacity 3s";
+
+    box.appendChild(item);
+
+    setTimeout(()=>{
+      item.style.transform =
+        "translateY(100vh) rotate(360deg)";
+      item.style.opacity = "0";
+    },50);
+
+    setTimeout(()=>item.remove(),3200);
+  }
+}
+
+document.getElementById("photos").addEventListener("change",function(e){
+  const gallery = document.getElementById("gallery");
+  gallery.innerHTML = "";
+
+  Array.from(e.target.files).forEach(file=>{
+    const img = document.createElement("img");
+    img.src = URL.createObjectURL(file);
+    gallery.appendChild(img);
+  });
+});
+</script>
+
+</body>
+</html>
